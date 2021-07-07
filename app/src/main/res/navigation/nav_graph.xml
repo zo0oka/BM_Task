@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/addIngredientsFragment">
+
+    <fragment
+        android:id="@+id/addIngredientsFragment"
+        android:name="com.zo0okadev.bmtask.ui.fragments.AddIngredientsFragment"
+        android:label="@string/add_ingredients"
+        tools:layout="@layout/fragment_add_ingredients">
+        <action
+            android:id="@+id/action_addIngredientsFragment_to_breakDownFragment"
+            app:destination="@id/breakDownFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/breakDownFragment"
+        android:name="com.zo0okadev.bmtask.ui.fragments.BreakDownFragment"
+        android:label="@string/ingredients_breakdown"
+        tools:layout="@layout/fragment_break_down">
+        <action
+            android:id="@+id/action_breakDownFragment_to_totalNutritionFragment"
+            app:destination="@id/totalNutritionFragment" />
+        <argument
+            android:name="break_down_nutrition_ingredients"
+            app:argType="string[]" />
+    </fragment>
+    <fragment
+        android:id="@+id/totalNutritionFragment"
+        android:name="com.zo0okadev.bmtask.ui.fragments.TotalNutritionFragment"
+        android:label="@string/total_nutrition_facts"
+        tools:layout="@layout/fragment_total_nutrition">
+        <argument
+            android:name="total_nutrition_ingredients"
+            app:argType="string[]" />
+    </fragment>
+</navigation>
